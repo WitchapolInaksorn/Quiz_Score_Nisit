@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "63807468446",
+    "project_id": "witchaphon-id0476",
+    "storage_bucket": "witchaphon-id0476.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:63807468446:android:f8cee774a67876e9925c8f",
+        "android_client_info": {
+          "package_name": "com.example.score_nisit"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDK2m16oA7qOGfOxixK6rBuOeCyhXZUZ-k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
