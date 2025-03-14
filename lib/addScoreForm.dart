@@ -31,6 +31,7 @@ class _AddScoreFormState extends State<AddScoreForm> {
       studentNameController.clear();
       subjectController.clear();
       scoreController.clear();
+      Navigator.pop(context);
     }
   }
 
@@ -83,15 +84,15 @@ class _AddScoreFormState extends State<AddScoreForm> {
                 controller: subjectController,
                 decoration: InputDecoration(
                   labelStyle: TextStyle(
-                    color: Color(0xFF3A2E74),
+                    color: Color(0xFF1E3A5F),
                     fontWeight: FontWeight.bold,
                   ),
-                  fillColor: Color(0xFFBDB2FF),
+                  fillColor: Color(0xFFA0C4FF),
                   filled: true,
                   labelText: 'Subject',
                   icon: Icon(
                     Icons.book,
-                    color: Color.fromARGB(255, 157, 142, 243),
+                    color: Color.fromARGB(255, 122, 171, 250),
                   ),
                   border: OutlineInputBorder(),
                 ),
@@ -111,16 +112,13 @@ class _AddScoreFormState extends State<AddScoreForm> {
                 ],
                 decoration: InputDecoration(
                   labelStyle: TextStyle(
-                    color: Color(0xFF1E3A5F),
+                    color: Color(0xFF1E5F3A),
                     fontWeight: FontWeight.bold,
                   ),
-                  fillColor: Color(0xFFA0C4FF),
+                  fillColor: Color(0xFFA0FFB0),
                   filled: true,
                   labelText: 'Score',
-                  icon: Icon(
-                    Icons.score,
-                    color: Color.fromARGB(255, 122, 171, 250),
-                  ),
+                  icon: Icon(Icons.score, color: Color(0xFF7ACA7A)),
                   border: OutlineInputBorder(),
                 ),
                 validator: (value) {
@@ -135,12 +133,15 @@ class _AddScoreFormState extends State<AddScoreForm> {
                 child: ElevatedButton(
                   onPressed: addScore,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color.fromARGB(255, 85, 82, 100),
+                    backgroundColor: Color.fromARGB(255, 165, 151, 69),
                     padding: EdgeInsets.symmetric(horizontal: 30, vertical: 13),
                   ),
                   child: Text(
                     'Add Score',
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ),

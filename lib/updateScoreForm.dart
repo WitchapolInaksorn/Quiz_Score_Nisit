@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/services.dart';
 
 class UpdateScoreForm extends StatefulWidget {
-  final String documentId; // Document ID to fetch and update the score
+  final String documentId;
   const UpdateScoreForm({super.key, required this.documentId});
 
   @override
@@ -29,7 +29,7 @@ class _UpdateScoreFormState extends State<UpdateScoreForm> {
 
       subjectController.clear();
       scoreController.clear();
-      Navigator.pop(context); // Go back after updating
+      Navigator.pop(context);
     }
   }
 
@@ -70,7 +70,6 @@ class _UpdateScoreFormState extends State<UpdateScoreForm> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Display student's name (Non-editable)
               FutureBuilder<DocumentSnapshot>(
                 future: scoresCollection.doc(widget.documentId).get(),
                 builder: (context, snapshot) {
@@ -78,29 +77,25 @@ class _UpdateScoreFormState extends State<UpdateScoreForm> {
                     return Center(child: CircularProgressIndicator());
                   }
 
-                  if (snapshot.hasError) {
-                    return Text('Error: ${snapshot.error}');
-                  }
-
                   if (!snapshot.hasData || !snapshot.data!.exists) {
-                    return Text('No data available');
+                    return Text('No Student Scores');
                   }
 
                   var data = snapshot.data!.data() as Map<String, dynamic>;
                   return Padding(
                     padding: const EdgeInsets.symmetric(vertical: 10),
                     child: Text(
-                      'Student Name: ${data['studentName']}',
-                      style: TextStyle(
-                        fontSize: 18,
+                      'Student Name : ${data['studentName']}',
+                      style: GoogleFonts.oswald(
+                        fontSize: 20,
                         fontWeight: FontWeight.bold,
+                        color: Colors.teal,
                       ),
                     ),
                   );
                 },
               ),
               SizedBox(height: 10),
-              // Editable Subject Field
               TextFormField(
                 controller: subjectController,
                 decoration: InputDecoration(
@@ -125,7 +120,6 @@ class _UpdateScoreFormState extends State<UpdateScoreForm> {
                 },
               ),
               SizedBox(height: 10),
-              // Editable Score Field
               TextFormField(
                 controller: scoreController,
                 keyboardType: TextInputType.numberWithOptions(decimal: true),
@@ -158,12 +152,15 @@ class _UpdateScoreFormState extends State<UpdateScoreForm> {
                 child: ElevatedButton(
                   onPressed: updateScore,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color.fromARGB(255, 85, 82, 100),
+                    backgroundColor: Color.fromARGB(255, 95, 196, 112),
                     padding: EdgeInsets.symmetric(horizontal: 30, vertical: 13),
                   ),
                   child: Text(
                     'Update Score',
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ),

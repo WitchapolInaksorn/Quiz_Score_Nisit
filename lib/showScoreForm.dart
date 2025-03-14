@@ -47,8 +47,12 @@ class _ShowScoresPageState extends State<ShowScoresPage> {
           if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
             return Center(
               child: Text(
-                'No scores available',
-                style: TextStyle(fontSize: 18),
+                'No Student Scores',
+                style: GoogleFonts.oswald(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w700,
+                  color: Color.fromARGB(255, 126, 126, 126),
+                ),
               ),
             );
           }
@@ -75,21 +79,24 @@ class _ShowScoresPageState extends State<ShowScoresPage> {
                     horizontal: 16,
                   ),
                   title: Text(
-                    studentName,
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                      color: Color(0xFF3A2E74),
+                    'Student Name : $studentName',
+                    style: GoogleFonts.oswald(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 20,
+                      color: Color.fromARGB(255, 80, 71, 134),
                     ),
                   ),
                   subtitle: Text(
                     'Score: $score',
-                    style: TextStyle(fontSize: 16, color: Color(0xFF1E3A5F)),
+                    style: GoogleFonts.oswald(
+                      fontSize: 16,
+                      color: Color.fromARGB(255, 75, 123, 185),
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   trailing: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      // Update Icon
                       IconButton(
                         icon: Icon(Icons.edit, color: Colors.blueAccent),
                         onPressed: () {
@@ -103,7 +110,6 @@ class _ShowScoresPageState extends State<ShowScoresPage> {
                           );
                         },
                       ),
-                      // Delete Icon
                       IconButton(
                         icon: Icon(Icons.delete, color: Colors.redAccent),
                         onPressed: () {
@@ -125,7 +131,7 @@ class _ShowScoresPageState extends State<ShowScoresPage> {
             MaterialPageRoute(builder: (context) => AddScoreForm()),
           );
         },
-        backgroundColor: Colors.greenAccent,
+        backgroundColor: Colors.teal,
         elevation: 10,
         child: Icon(Icons.add, color: Colors.white),
       ),
